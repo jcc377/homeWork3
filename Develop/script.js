@@ -15,14 +15,21 @@ function generatePassword() {
 // ask for the lenght of the password
   gatherInput();
 
-  return "dummyPa$$word"
+  return "dummyPa$$word";
 
 }
 
 function gatherInput() {
   // see how to convert strings to numbers
   var passwordLength = prompt("How long would you like your password to be?");
-  // add if statement @ boundary conditions 
+  // add if statement implementing boundary conditions for password length
+  if (passwordLength > 8, passwordLength < 128) {
+    passwordLength = passwordLength;
+  }
+  else {
+    passwordLength = "Please Select a Password Length between 8 and 128 characters";
+  }
+
   var holdsNumeric = confirm("Do you want password to contain numberic values?");
 
   var holdsLowerCase = confirm("Do you want LowerCase Letters in password?");
@@ -40,7 +47,7 @@ function gatherInput() {
   };
 
   console.log("These are the user inputs", userInputs);
-
+  
   return userInputs;
 }
 // Add event listener to generate button
