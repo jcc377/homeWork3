@@ -21,20 +21,33 @@ console.log("THIS WORKS")
   var userOptions = gatherInput()
 
   var combinedChars = [];
-// object & property ex.
+
+  // object & property ex.
 if (userOptions.holdsLowerCaseKey === true) {
-  // run some logic to concatinate the lowercased chas with the combinedChars array
-  combinedChars = combinedChars.concat(lowerCase)
+  // logic to concatinate the lowercased chars with the combinedChars array
+  combinedChars = combinedChars.concat(lowerCase);
 }
+
 console.log("THIS IS COMBINED CHARS",combinedChars)
 // do the same for the rest
+if (userOptions.holdsUpperCaseKey === true) {
+  combinedChars = combinedChars.concat(upperCase);
+}
 
+if (userOptions.holdsNumbericKey === true) {
+  combinedChars = combinedChars.concat(numeric);
+  }
+
+if (userOptions.holdsSpecCharsKey === true) {
+  combinedChars = combinedChars.concat(specChars);
+}
 
   // generate and log a random value from each array above
   
   for (var i = 0; i < userOptions.passwordLengthKey; i++) {
     var randomIndex = Math.floor(Math.random() * combinedChars.length);
     var randomValue = combinedChars[randomIndex];
+  //  add inputs to array
     generatedPassword.push(randomValue);
   }
   console.log(generatedPassword);
@@ -43,9 +56,8 @@ console.log("THIS IS COMBINED CHARS",combinedChars)
 }
 
 function gatherInput() {
-  // see how to convert strings to numbers
-  var passwordLength = prompt("How long would you like your password to be?");
-  // add if statement implementing boundary conditions for password length
+    var passwordLength = prompt("How long would you like your password to be?");
+  // if statement implementing boundary conditions for password length
   if (passwordLength > 8, passwordLength < 128) {
     passwordLength = passwordLength;
   }
